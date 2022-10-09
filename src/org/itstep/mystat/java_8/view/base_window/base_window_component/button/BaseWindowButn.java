@@ -1,4 +1,4 @@
-package org.itstep.mystat.java_8.view.base_window.base_window_component;
+package org.itstep.mystat.java_8.view.base_window.base_window_component.button;
 
 import java.awt.Dimension;
 import java.awt.Font;

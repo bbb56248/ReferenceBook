@@ -1,18 +1,15 @@
-package org.itstep.mystat.java_8.controller.base_window_component_controller;
+package org.itstep.mystat.java_8.controller.all_window_component_controller.base_window_component_controller;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import org.itstep.mystat.java_8.controller.all_window_component_controller.AllWindowComponentController;
 import org.itstep.mystat.java_8.view.base_window.BaseWindow;
 
-public abstract class BaseWindowComponentController extends MouseAdapter implements ActionListener, ChangeListener {
+public abstract class BaseWindowComponentController extends AllWindowComponentController implements ChangeListener {
 
 	protected BaseWindow baseWindow;
 
@@ -26,14 +23,6 @@ public abstract class BaseWindowComponentController extends MouseAdapter impleme
 
 	public BaseWindowComponentController(BaseWindow baseWindow) {
 		this.baseWindow = baseWindow;
-	}
-
-	@Override
-	public void mouseClicked(MouseEvent e) {
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
 	}
 
 	@Override

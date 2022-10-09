@@ -1,4 +1,4 @@
-package org.itstep.mystat.java_8.controller.base_window_component_controller;
+package org.itstep.mystat.java_8.controller.all_window_component_controller.base_window_component_controller;
 
 import java.awt.event.MouseEvent;
 import java.util.Enumeration;

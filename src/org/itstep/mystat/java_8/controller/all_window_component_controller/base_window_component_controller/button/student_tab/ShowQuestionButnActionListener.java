@@ -1,10 +1,10 @@
-package org.itstep.mystat.java_8.controller.base_window_component_controller.student_tab;
+package org.itstep.mystat.java_8.controller.all_window_component_controller.base_window_component_controller.button.student_tab;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.JOptionPane;
 
-import org.itstep.mystat.java_8.controller.base_window_component_controller.BaseWindowComponentController;
+import org.itstep.mystat.java_8.controller.all_window_component_controller.base_window_component_controller.BaseWindowComponentController;
 import org.itstep.mystat.java_8.view.base_window.BaseWindow;
 
 public class ShowQuestionButnActionListener extends BaseWindowComponentController {

@@ -1,4 +1,4 @@
-package org.itstep.mystat.java_8.controller.base_window_component_controller.admin_tab;
+package org.itstep.mystat.java_8.controller.all_window_component_controller.base_window_component_controller.button.admin_tab;
 
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-import org.itstep.mystat.java_8.controller.base_window_component_controller.BaseWindowComponentController;
+import org.itstep.mystat.java_8.controller.all_window_component_controller.base_window_component_controller.BaseWindowComponentController;
 import org.itstep.mystat.java_8.my_interface.logging_error.LoggingErrorAndShowingMessage;
 import org.itstep.mystat.java_8.view.base_window.BaseWindow;
 
@@ -83,50 +83,50 @@ public class SaveContentAndLogoButnActionListener extends BaseWindowComponentCon
 	private void saveContent(File folderForContentAndLogo) {
 		File contentFolder = new File(folderForContentAndLogo + "/Content");
 		contentFolder.mkdir();
-		File partitions = new File(contentFolder + "/Partitions.txt");
-		File topics = new File(contentFolder + "/Topics.txt");
-		File questions = new File(contentFolder + "/Questions.txt");
-		File answers = new File(contentFolder + "/Answers.txt");
+		File partitionsTitlesFile = new File(contentFolder + "/Partitions.txt");
+		File topicsTitlesFile = new File(contentFolder + "/Topics.txt");
+		File questionsTitlesFile = new File(contentFolder + "/Questions.txt");
+		File answersTitlesFile = new File(contentFolder + "/Answers.txt");
 		try {
-			partitions.createNewFile();
-			topics.createNewFile();
-			questions.createNewFile();
-			answers.createNewFile();
-			BufferedWriter partitionsWriter = new BufferedWriter(new FileWriter(partitions, false));
-			BufferedWriter topicsWriter = new BufferedWriter(new FileWriter(topics, false));
-			BufferedWriter questionsWriter = new BufferedWriter(new FileWriter(questions, false));
-			BufferedWriter answersWriter = new BufferedWriter(new FileWriter(answers, false));
+			partitionsTitlesFile.createNewFile();
+			topicsTitlesFile.createNewFile();
+			questionsTitlesFile.createNewFile();
+			answersTitlesFile.createNewFile();
+			BufferedWriter partitionsTitlesFileWriter = new BufferedWriter(new FileWriter(partitionsTitlesFile, false));
+			BufferedWriter topicsTitlesFileWriter = new BufferedWriter(new FileWriter(topicsTitlesFile, false));
+			BufferedWriter questionsTitlesFileWriter = new BufferedWriter(new FileWriter(questionsTitlesFile, false));
+			BufferedWriter answersTitlesFileWriter = new BufferedWriter(new FileWriter(answersTitlesFile, false));
 			baseWindow.getDatabaseController().getDatabase().getPartitions().forEach(partition -> {
 				try {
-					partitionsWriter.write(partition.getTitle() + System.lineSeparator());
+					partitionsTitlesFileWriter.write(partition.getTitle() + System.lineSeparator());
 					partition.getTopics().forEach(topic -> {
 						try {
-							topicsWriter.write(topic.getTitle() + System.lineSeparator());
+							topicsTitlesFileWriter.write(topic.getTitle() + System.lineSeparator());
 							topic.getQuestions().values().forEach(question -> {
 								try {
-									questionsWriter.write(question.getTitle() + System.lineSeparator());
-									answersWriter.write(question.getAnswer() + System.lineSeparator());
+									questionsTitlesFileWriter.write(question.getTitle() + System.lineSeparator());
+									answersTitlesFileWriter.write(question.getAnswer() + System.lineSeparator());
 								} catch (IOException e1) {
 									handleError(e1);
 								}
 							});
-							questionsWriter.write(System.lineSeparator());
-							answersWriter.write(System.lineSeparator());
+							questionsTitlesFileWriter.write(System.lineSeparator());
+							answersTitlesFileWriter.write(System.lineSeparator());
 						} catch (IOException e1) {
 							handleError(e1);
 						}
 					});
-					topicsWriter.write(System.lineSeparator());
-					questionsWriter.write(System.lineSeparator());
-					answersWriter.write(System.lineSeparator());
+					topicsTitlesFileWriter.write(System.lineSeparator());
+					questionsTitlesFileWriter.write(System.lineSeparator());
+					answersTitlesFileWriter.write(System.lineSeparator());
 				} catch (IOException e1) {
 					handleError(e1);
 				}
 			});
-			partitionsWriter.close();
-			topicsWriter.close();
-			questionsWriter.close();
-			answersWriter.close();
+			partitionsTitlesFileWriter.close();
+			topicsTitlesFileWriter.close();
+			questionsTitlesFileWriter.close();
+			answersTitlesFileWriter.close();
 		} catch (IOException e1) {
 			handleError(e1);
 		}

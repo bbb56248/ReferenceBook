@@ -1,9 +1,10 @@
-package org.itstep.mystat.java_8.controller.admin_window_component_controller;
+package org.itstep.mystat.java_8.controller.all_window_component_controller.admin_window_component_controller.button;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.JOptionPane;
 
+import org.itstep.mystat.java_8.controller.all_window_component_controller.admin_window_component_controller.AdminWindowComponentController;
 import org.itstep.mystat.java_8.view.admin_window.AdminWindow;
 
 public class RegisterButnActionListener extends AdminWindowComponentController {

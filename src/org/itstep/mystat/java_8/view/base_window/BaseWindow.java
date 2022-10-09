@@ -10,6 +10,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -19,24 +20,27 @@ import javax.swing.JTree;
 import javax.swing.SpringLayout;
 
 import org.itstep.mystat.java_8.controller.AllWindowController;
+import org.itstep.mystat.java_8.controller.ContentController;
 import org.itstep.mystat.java_8.controller.DatabaseController;
-import org.itstep.mystat.java_8.controller.base_window_component_controller.MyTabbedPaneChangeListener;
+import org.itstep.mystat.java_8.controller.all_window_component_controller.base_window_component_controller.MyTabbedPaneChangeListener;
 import org.itstep.mystat.java_8.my_enum.User;
 import org.itstep.mystat.java_8.my_interface.logging_error.LoggingErrorAndShowingMessage;
+import org.itstep.mystat.java_8.view.base_window.base_window_component.DownloadOrUpdateCheckBox;
 import org.itstep.mystat.java_8.view.base_window.base_window_component.MyLabel;
 import org.itstep.mystat.java_8.view.base_window.base_window_component.MyScrollPane;
 import org.itstep.mystat.java_8.view.base_window.base_window_component.MyTree;
-import org.itstep.mystat.java_8.view.base_window.base_window_component.admin_tab.DownloadContentButn;
-import org.itstep.mystat.java_8.view.base_window.base_window_component.admin_tab.DownloadLogoButn;
-import org.itstep.mystat.java_8.view.base_window.base_window_component.admin_tab.SaveContentAndLogoButn;
-import org.itstep.mystat.java_8.view.base_window.base_window_component.student_tab.ShowAnswerButn;
-import org.itstep.mystat.java_8.view.base_window.base_window_component.student_tab.ShowQuestionButn;
+import org.itstep.mystat.java_8.view.base_window.base_window_component.button.admin_tab.DownloadContentButn;
+import org.itstep.mystat.java_8.view.base_window.base_window_component.button.admin_tab.DownloadLogoButn;
+import org.itstep.mystat.java_8.view.base_window.base_window_component.button.admin_tab.SaveContentAndLogoButn;
+import org.itstep.mystat.java_8.view.base_window.base_window_component.button.student_tab.ShowAnswerButn;
+import org.itstep.mystat.java_8.view.base_window.base_window_component.button.student_tab.ShowQuestionButn;
 
 public class BaseWindow extends JFrame implements LoggingErrorAndShowingMessage {
 
 	private static final long serialVersionUID = 4320888157222765418L;
 
 	private DatabaseController databaseController;
+	private ContentController contentController;
 	private AllWindowController allWindowController;
 
 	private Container adminTabContainer = new Container();
@@ -49,11 +53,13 @@ public class BaseWindow extends JFrame implements LoggingErrorAndShowingMessage 
 	private JTextArea answerTextArea = new JTextArea(10, 45);
 	private JLabel questionSelectedLabel = new MyLabel("0");
 	private JLabel restQuestionsLabel = new MyLabel("0");
+	private JCheckBox downloadOrUpdateCheckBox;
 	private JButton saveContentAndLogoButn;
 	private JTabbedPane myTabbedPane = new JTabbedPane();
 
-	public BaseWindow(DatabaseController databaseController) {
+	public BaseWindow(DatabaseController databaseController, ContentController contentController) {
 		this.databaseController = databaseController;
+		this.contentController = contentController;
 		createWindow();
 	}
 
@@ -63,6 +69,14 @@ public class BaseWindow extends JFrame implements LoggingErrorAndShowingMessage 
 
 	public void setDatabaseController(DatabaseController databaseController) {
 		this.databaseController = databaseController;
+	}
+
+	public ContentController getContentController() {
+		return contentController;
+	}
+
+	public void setContentController(ContentController contentController) {
+		this.contentController = contentController;
 	}
 
 	public AllWindowController getAllWindowController() {
@@ -143,6 +157,14 @@ public class BaseWindow extends JFrame implements LoggingErrorAndShowingMessage 
 
 	public void setRestQuestionsLabel(JLabel restQuestionsLabel) {
 		this.restQuestionsLabel = restQuestionsLabel;
+	}
+
+	public JCheckBox getDownloadOrUpdateCheckBox() {
+		return downloadOrUpdateCheckBox;
+	}
+
+	public void setDownloadOrUpdateCheckBox(JCheckBox downloadOrUpdateCheckBox) {
+		this.downloadOrUpdateCheckBox = downloadOrUpdateCheckBox;
 	}
 
 	public JButton getSaveContentAndLogoButn() {
@@ -238,17 +260,24 @@ public class BaseWindow extends JFrame implements LoggingErrorAndShowingMessage 
 		adminTabContainer.setLayout(adminLayout);
 
 		JButton downloadContentButn = new DownloadContentButn(this);
-		adminLayout.putConstraint(SpringLayout.WEST, downloadContentButn, 20, SpringLayout.EAST, myScrollPane);
+		adminLayout.putConstraint(SpringLayout.WEST, downloadContentButn, 40, SpringLayout.EAST, myScrollPane);
 		adminLayout.putConstraint(SpringLayout.NORTH, downloadContentButn, 20, SpringLayout.NORTH, adminTabContainer);
 		adminTabContainer.add(downloadContentButn);
 
+		downloadOrUpdateCheckBox = new DownloadOrUpdateCheckBox(this);
+		adminLayout.putConstraint(SpringLayout.EAST, downloadOrUpdateCheckBox, -10, SpringLayout.WEST,
+				downloadContentButn);
+		adminLayout.putConstraint(SpringLayout.VERTICAL_CENTER, downloadOrUpdateCheckBox, 0,
+				SpringLayout.VERTICAL_CENTER, downloadContentButn);
+		adminTabContainer.add(downloadOrUpdateCheckBox);
+
 		JButton downloadLogoButn = new DownloadLogoButn(this);
-		adminLayout.putConstraint(SpringLayout.WEST, downloadLogoButn, 20, SpringLayout.EAST, downloadContentButn);
+		adminLayout.putConstraint(SpringLayout.WEST, downloadLogoButn, 15, SpringLayout.EAST, downloadContentButn);
 		adminLayout.putConstraint(SpringLayout.NORTH, downloadLogoButn, 0, SpringLayout.NORTH, downloadContentButn);
 		adminTabContainer.add(downloadLogoButn);
 
 		saveContentAndLogoButn = new SaveContentAndLogoButn(this);
-		adminLayout.putConstraint(SpringLayout.WEST, saveContentAndLogoButn, 20, SpringLayout.EAST, downloadLogoButn);
+		adminLayout.putConstraint(SpringLayout.WEST, saveContentAndLogoButn, 15, SpringLayout.EAST, downloadLogoButn);
 		adminLayout.putConstraint(SpringLayout.NORTH, saveContentAndLogoButn, 0, SpringLayout.NORTH, downloadLogoButn);
 		adminTabContainer.add(saveContentAndLogoButn);
 

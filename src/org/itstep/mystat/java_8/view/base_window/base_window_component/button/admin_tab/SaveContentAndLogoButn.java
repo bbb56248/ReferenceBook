@@ -1,8 +1,8 @@
-package org.itstep.mystat.java_8.view.base_window.base_window_component.admin_tab;
+package org.itstep.mystat.java_8.view.base_window.base_window_component.button.admin_tab;
 
-import org.itstep.mystat.java_8.controller.base_window_component_controller.admin_tab.SaveContentAndLogoButnActionListener;
+import org.itstep.mystat.java_8.controller.all_window_component_controller.base_window_component_controller.button.admin_tab.SaveContentAndLogoButnActionListener;
 import org.itstep.mystat.java_8.view.base_window.BaseWindow;
-import org.itstep.mystat.java_8.view.base_window.base_window_component.BaseWindowButn;
+import org.itstep.mystat.java_8.view.base_window.base_window_component.button.BaseWindowButn;
 
 public class SaveContentAndLogoButn extends BaseWindowButn {
 

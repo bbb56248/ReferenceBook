@@ -1,4 +1,4 @@
-package org.itstep.mystat.java_8.controller.base_window_component_controller;
+package org.itstep.mystat.java_8.controller.all_window_component_controller.base_window_component_controller;
 
 import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
@@ -23,6 +23,8 @@ public class MyTabbedPaneChangeListener extends BaseWindowComponentController {
 			baseWindow.getAdminTabContainer().add(baseWindow.getMyScrollPane());
 			baseWindow.getAllWindowController().getAdminWindow().getLoginField().setText("");
 			baseWindow.getAllWindowController().getAdminWindow().getPasswordField().setText("");
+			baseWindow.getAllWindowController().getAdminWindow().getShowOrHidePasswordCheckBox().setSelected(false);
+			baseWindow.getDownloadOrUpdateCheckBox().setSelected(false);
 			baseWindow.getAllWindowController().getAdminWindow().setVisible(true);
 			return;
 		}

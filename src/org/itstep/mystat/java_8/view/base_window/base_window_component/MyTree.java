@@ -9,7 +9,7 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeNode;
 
-import org.itstep.mystat.java_8.controller.base_window_component_controller.MyTreeMouseAdapter;
+import org.itstep.mystat.java_8.controller.all_window_component_controller.base_window_component_controller.MyTreeMouseAdapter;
 import org.itstep.mystat.java_8.exception.CreateMyTreeException;
 import org.itstep.mystat.java_8.exception.correct_data_missing_exception.CorrectDataMissingException;
 import org.itstep.mystat.java_8.view.base_window.BaseWindow;

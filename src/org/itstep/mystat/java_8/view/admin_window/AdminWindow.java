@@ -13,7 +13,7 @@ import javax.swing.SpringLayout;
 import org.itstep.mystat.java_8.controller.AdminController;
 import org.itstep.mystat.java_8.controller.AllWindowController;
 import org.itstep.mystat.java_8.my_enum.User;
-import org.itstep.mystat.java_8.view.admin_window.admin_window_component.MyCheckBox;
+import org.itstep.mystat.java_8.view.admin_window.admin_window_component.ShowOrHidePasswordCheckBox;
 import org.itstep.mystat.java_8.view.admin_window.admin_window_component.button.DeleteButn;
 import org.itstep.mystat.java_8.view.admin_window.admin_window_component.button.LoginButn;
 import org.itstep.mystat.java_8.view.admin_window.admin_window_component.button.RegisterButn;
@@ -27,6 +27,7 @@ public class AdminWindow extends JDialog {
 
 	private JTextField loginField = new JTextField(15);
 	private JPasswordField passwordField = new JPasswordField(15);
+	private JCheckBox showOrHidePasswordCheckBox;
 
 	public AdminWindow(AdminController adminController) {
 		this.adminController = adminController;
@@ -65,6 +66,14 @@ public class AdminWindow extends JDialog {
 		this.passwordField = passwordField;
 	}
 
+	public JCheckBox getShowOrHidePasswordCheckBox() {
+		return showOrHidePasswordCheckBox;
+	}
+
+	public void setShowOrHidePasswordCheckBox(JCheckBox showOrHidePasswordCheckBox) {
+		this.showOrHidePasswordCheckBox = showOrHidePasswordCheckBox;
+	}
+
 	private void createWindow() {
 		setTitle(User.Администратор.name());
 		setSize(350, 350);
@@ -91,10 +100,10 @@ public class AdminWindow extends JDialog {
 		layout.putConstraint(SpringLayout.WEST, passwordField, 0, SpringLayout.WEST, loginField);
 		layout.putConstraint(SpringLayout.NORTH, passwordField, 0, SpringLayout.NORTH, label2);
 		container.add(passwordField);
-		JCheckBox checkBox = new MyCheckBox(passwordField);
-		layout.putConstraint(SpringLayout.WEST, checkBox, 5, SpringLayout.EAST, passwordField);
-		layout.putConstraint(SpringLayout.NORTH, checkBox, 0, SpringLayout.NORTH, passwordField);
-		container.add(checkBox);
+		showOrHidePasswordCheckBox = new ShowOrHidePasswordCheckBox(this);
+		layout.putConstraint(SpringLayout.WEST, showOrHidePasswordCheckBox, 5, SpringLayout.EAST, passwordField);
+		layout.putConstraint(SpringLayout.NORTH, showOrHidePasswordCheckBox, 0, SpringLayout.NORTH, passwordField);
+		container.add(showOrHidePasswordCheckBox);
 
 		JButton registerButn = new RegisterButn(this);
 		layout.putConstraint(SpringLayout.WEST, registerButn, 0, SpringLayout.WEST, label2);

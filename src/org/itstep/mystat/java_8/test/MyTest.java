@@ -13,13 +13,13 @@ import org.itstep.mystat.java_8.exception.correct_data_missing_exception.StringF
 import org.itstep.mystat.java_8.exception.correct_data_missing_exception.TopicIsNullException;
 import org.itstep.mystat.java_8.exception.correct_data_missing_exception.TopicsIsNullException;
 import org.itstep.mystat.java_8.model.data.Database;
-import org.itstep.mystat.java_8.model.data.InitialContent;
+import org.itstep.mystat.java_8.model.data.Content;
 import org.itstep.mystat.java_8.model.data.Partition;
 import org.junit.Test;
 
 public class MyTest {
 
-	private List<Partition> partitions = (new InitialContent()).getPartitions();
+	private List<Partition> partitions = (new Content("ReferenceBooks/JAVA/Content/")).getPartitions();
 	private Database database = new Database("0", "База данных", partitions);
 	private DatabaseController databaseController = new DatabaseController(database);
 

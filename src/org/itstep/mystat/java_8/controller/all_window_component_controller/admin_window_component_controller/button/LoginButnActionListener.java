@@ -1,14 +1,15 @@
-package org.itstep.mystat.java_8.controller.admin_window_component_controller;
+package org.itstep.mystat.java_8.controller.all_window_component_controller.admin_window_component_controller.button;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.JOptionPane;
 
+import org.itstep.mystat.java_8.controller.all_window_component_controller.admin_window_component_controller.AdminWindowComponentController;
 import org.itstep.mystat.java_8.view.admin_window.AdminWindow;
 
-public class DeleteButnActionListener extends AdminWindowComponentController {
+public class LoginButnActionListener extends AdminWindowComponentController {
 
-	public DeleteButnActionListener(AdminWindow adminWindow) {
+	public LoginButnActionListener(AdminWindow adminWindow) {
 		super(adminWindow);
 	}
 
@@ -17,10 +18,9 @@ public class DeleteButnActionListener extends AdminWindowComponentController {
 		String login = adminWindow.getLoginField().getText();
 		String password = new String(adminWindow.getPasswordField().getPassword());
 		if ((login != null) && (!login.isEmpty()) && (password != null) && (!password.isEmpty())) {
-			if (adminWindow.getAdminController().delete(login, password)) {
-				JOptionPane.showMessageDialog(null, "Администратор успешно удален");
-				adminWindow.getLoginField().setText("");
-				adminWindow.getPasswordField().setText("");
+			if (adminWindow.getAdminController().login(login, password)) {
+				JOptionPane.showMessageDialog(null, "Вы успешно вошли как Администратор");
+				adminWindow.setVisible(false);
 			} else {
 				JOptionPane.showMessageDialog(null, "Такой Администратор не зарегистрирован");
 			}

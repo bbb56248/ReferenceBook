@@ -1,4 +1,4 @@
-package org.itstep.mystat.java_8.controller.base_window_component_controller.admin_tab;
+package org.itstep.mystat.java_8.controller.all_window_component_controller.base_window_component_controller.button.admin_tab;
 
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
@@ -11,10 +11,10 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import org.itstep.mystat.java_8.controller.base_window_component_controller.BaseWindowComponentController;
+import org.itstep.mystat.java_8.controller.all_window_component_controller.base_window_component_controller.BaseWindowComponentController;
 import org.itstep.mystat.java_8.my_interface.logging_error.LoggingErrorAndShowingMessage;
 import org.itstep.mystat.java_8.view.base_window.BaseWindow;
-import org.itstep.mystat.java_8.view.base_window.base_window_component.admin_tab.SaveContentAndLogoButn;
+import org.itstep.mystat.java_8.view.base_window.base_window_component.button.admin_tab.SaveContentAndLogoButn;
 
 public class DownloadLogoButnActionListener extends BaseWindowComponentController
 		implements LoggingErrorAndShowingMessage {

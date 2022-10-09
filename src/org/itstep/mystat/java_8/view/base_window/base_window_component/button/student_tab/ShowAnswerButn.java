@@ -1,8 +1,8 @@
-package org.itstep.mystat.java_8.view.base_window.base_window_component.student_tab;
+package org.itstep.mystat.java_8.view.base_window.base_window_component.button.student_tab;
 
-import org.itstep.mystat.java_8.controller.base_window_component_controller.student_tab.ShowAnswerButnActionListener;
+import org.itstep.mystat.java_8.controller.all_window_component_controller.base_window_component_controller.button.student_tab.ShowAnswerButnActionListener;
 import org.itstep.mystat.java_8.view.base_window.BaseWindow;
-import org.itstep.mystat.java_8.view.base_window.base_window_component.BaseWindowButn;
+import org.itstep.mystat.java_8.view.base_window.base_window_component.button.BaseWindowButn;
 
 public class ShowAnswerButn extends BaseWindowButn {
 
